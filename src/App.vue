@@ -2,7 +2,7 @@
   <el-dialog v-model="dialogTableVisible" title="新增特殊房價">
     <!-- 適用期間 -->
     <span>適用期間</span>
-    <div class="mb-1rem">
+    <div class="mb-[1rem]">
       <el-date-picker
         v-model="dateRange"
         type="daterange"
@@ -15,7 +15,7 @@
     <!-- 請先填寫房價 -->
     <span>請先填寫房價，再勾選房型</span>
     <!-- 按鈕群 -->
-   <div class="mb-1rem">
+   <div class="mb-[1rem]">
     <el-checkbox-group v-model="list">
       <el-checkbox 
         v-for="roomType in roomTypes" 
@@ -23,7 +23,7 @@
         :disabled="!roomType.price"
         border
         size="large"
-        class="mb-1rem"
+        class="mb-[1rem]"
         >
         {{ roomType.name }}
         <el-input-number
@@ -57,10 +57,7 @@
     </template>
   </el-dialog>
   <el-dialog v-model="dialogEditVisible" title="編輯特殊房價">
-  <div
-    un-flex="~ col items-start"
-    un-m="b-1rem"
-  >
+  <div class="flex flex-col items-start mb-[1rem]">
     <span>日期</span>
     <el-date-picker
       v-model="editInfo.date_range"
@@ -72,7 +69,7 @@
       :clearable="false"
     />
   </div>
-  <div flex="~ col items-start">
+  <div class="flex flex-col items-start">
     <span>房價</span>
     <el-input-number
       v-model="editInfo.price"
@@ -82,8 +79,7 @@
   </div>
 
   <div 
-    un-flex="~ col item-start"
-    un-m="b-1rem"
+    class="flex flex-col items-start mb-[1rem]"
   >
     <span>適用在星期幾?</span>
     <div>
@@ -98,16 +94,15 @@
   </div>
 
   </el-dialog>
-  <div class="p-1rem">
-    <div un-flex="~ justify-between">
+  <div class="p-[1rem]">
+    <div class="flex justify-between">
       <h2>房型價格表</h2>
       <el-button @click="dialogTableVisible = true">
         ＋新增特殊房價
       </el-button>
     </div>
     <div
-      un-grid="~ sm:cols-2 md:cols-3 lg:cols-4"
-      un-gap="1rem"
+    class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem]"
     >
        <RoomCard
         v-for="roomType in roomTypes"
